@@ -7,7 +7,6 @@ from langchain_core.messages import HumanMessage
 from utils import clean_and_split
 import time
 
-start_time = time.time()
 load_dotenv()
 
 current_words = "\n".join(clean_and_split("Reconstruction_document.txt"))
@@ -82,7 +81,3 @@ res = llm.invoke([HumanMessage(content=prompt)])
 json_data = json.loads(res.content)
 with open("output.json", "w", encoding="utf-8") as f:
     json.dump(json_data, f, indent=2, ensure_ascii=False)
-
-print(res.content)
-end_time = time.time()
-print(f"LLM Inference Time: {end_time - start_time:.2f} seconds")
