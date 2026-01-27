@@ -75,7 +75,7 @@ Return a JSON object using exactly the following structure.
 
 
 
-llm = ChatOpenAI(model="gpt-5", temperature=0)  # 推荐使用 gpt-4o 或 gpt-4
+llm = ChatOpenAI(model="gpt-5", temperature=0) 
 res = llm.invoke([HumanMessage(content=prompt)])
 
 json_data = json.loads(res.content)
