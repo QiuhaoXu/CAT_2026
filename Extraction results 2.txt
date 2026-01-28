@@ -1,0 +1,4 @@
+{
+  "operations": [],
+  "optimization_goal": "Evaluate whether the full assembly sequence requires reordering to maintain flow efficiency and minimize total assembly duration When executing updates resource constraints equipment and operators must also be considered"
+}
