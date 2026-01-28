@@ -1,0 +1,27 @@
+{
+  "operations": [
+    {
+      "operation_name": "S40 02002 Cleanup and add sealant",
+      "duration": 35,
+      "Type": "Manual",
+      "precedence": "S40 02001 Set in position Rails and LFT",
+      "required_resources": {
+        "Station": 1,
+        "Mechanical Operator": 2,
+        "Station platform": 1
+      }
+    },
+    {
+      "operation_name": "S40 02003 Inspection",
+      "duration": 55,
+      "Type": "Manual",
+      "precedence": "S40 02002 Cleanup and add sealant",
+      "required_resources": {
+        "Station": 1,
+        "Mechanical Operator": 2,
+        "Station platform": 1
+      }
+    }
+  ],
+  "optimization_goal": "Both new operations S40 02002 and S40 02003 must be integrated into the MBSE activity model adhering to the defined sequencing; post integration, evaluate whether the full assembly sequence requires reordering to maintain flow efficiency and minimize total assembly duration, strictly respecting resource constraints for equipment and operators."
+}
