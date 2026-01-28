@@ -1,0 +1,39 @@
+Subject: Station 40 Assembly Process Technical Definition - Fuselage Section 15-19
+Document ID: PDD-S40-2026-REV-B
+Date: 2026-01-27
+Status: FOR IMPLEMENTATION
+
+1.0 INITIALIZATION PHASE
+
+The assembly sequence for Station 40 commences with the logistical transfer of the sub-assembly. The initial operation, designated as [S40_00001_Jig_in], is a critical manual procedure involving the precise positioning of the airframe structure. Execution necessitates the utilization of a Crane (1) and specialized Transportation tooling (1) to ensure structural integrity during movement. The allocated time window for this intake process is established at 60 minutes. Due to its nature as the entry point of the workflow, this task has no upstream predecessor dependencies (\).
+
+Upon the successful locking of the jig, the workflow transitions to site preparation. The subsequent task, [S40_01001_Set up working environment], requires a duration of 10 minutes to complete. This manual activity is strictly dependent on the completion of the Jig_in process (Processor: 1). Resource requirements for this phase include one Station (1), a Station platform (1) for accessibility, and a dedicated Mechanical operator (1) to organize the tooling racks and safety barriers.
+
+2.0 STRUCTURAL POSITIONING AND AUTOMATION PREPARATION
+
+Following the environmental setup, the focus shifts to component alignment. The operation [S40_02001_Set in position Rails and LFT] is the prerequisite for all subsequent automated drilling tasks. This manual positioning task consumes 30 minutes and demands high precision. It draws upon the Station (1) infrastructure and requires the collaboration of Mechanical operators (2) utilizing the Crane (1) for heavy lifting. This step cannot begin until the working environment setup (Processor: 2) is fully signed off.
+
+3.0 ENGINEERING CHANGE NOTICE (ECN-2026-04): SEALING PROCESS UPGRADE
+
+Attention: A mandatory process update has been issued regarding the forward-aft fuselage rail joints. The following new operations are to be inserted into the workflow immediately downstream of the rail positioning phase.
+
+3.1 NEW OPERATION: CLEANUP AND SEALANT APPLICATION
+A new task, [S40_02002_Cleanup_and_add_sealant], is introduced to address joint integrity.
+   - Process Description: Technicians must manually clean the designated joint area using solvent and apply the Type-IV sealant material to the rail interfaces.
+   - Cycle Time: The standard operation time is defined as 35 minutes.
+   - Dependency Logic: This task is sequentially linked to the completion of rail positioning (Processor: S40_02001_Set in position Rails and LFT).
+   - Resource Allocation: The task necessitates a Station (1) and a Station platform (1) to access the upper joints, along with a team of Mechanical Operators (2).
+
+3.2 NEW OPERATION: QUALITY ASSURANCE INSPECTION
+To validate the sealing quality, a subsequent verification step is added, labeled [S40_02003_Inspection].
+   - Process Description: A manual visual and gauge inspection to confirm uniform sealant coverage and correct thickness specifications.
+   - Cycle Time: 55 minutes are allocated for this detailed check.
+   - Dependency Logic: Strict constraints dictate that this inspection must occur strictly after [S40_02002_Cleanup_and_add_sealant].
+   - Resource Allocation: Similar to the application phase, this requires Station (1), Station platform (1), and Mechanical Operators (2).
+
+4.0 AUTOMATION PHASE AND CLOSEOUT (FOR CONTEXT)
+
+Once the new sealing and inspection protocols are satisfied, the workflow proceeds to the automated drilling sequence (S40_040XX series, implied). Note that the final logistical removal, [S40_00002_Jig out], remains the terminal node of this graph. This manual egress operation (30 min) releases the Crane and Transportation tooling resources but can only trigger after all upstream assembly and inspection tasks are cleared.
+
+GLOBAL OPTIMIZATION DIRECTIVE:
+Both new operations (S40_02002 and S40_02003) must be integrated into the MBSE activity model adhering to the defined sequencing. Post-integration, the system must evaluate whether the full assembly sequence requires reordering to maintain flow efficiency and minimize total assembly duration. Resource constraints (equipment and operators) must be strictly respected during this re-evaluation.
